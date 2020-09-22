@@ -1,18 +1,20 @@
-import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
-import Chart from '../chart';
-import * as components from '../idyll-rn-components/src';
-import IdyllDocument from '../idyll-rn-document/src';
-import NoData from '../noData';
+import React from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
+import Chart from "../chart";
+import * as components from "../idyll-rn-components/src";
+import IdyllDocument from "../idyll-rn-document/src";
+import NoData from "../noData";
 
-const markups = `
+const markup = `
 # Title h1
 ## Title h2
 ### Title h3
 #### Title h4
 ##### Title h5
 ###### Title h6
-vima text  khkhkhkdfg lkdjlkjdlfgdlk lkjlkdjfgdf 
+
+ Body text 
+
  **bold** **bold** **bold**
 
 
@@ -29,9 +31,18 @@ vima text  khkhkhkdfg lkdjlkjdlfgdlk lkjlkdjfgdf
 [Range value:voltage min:0 max:100 /]
 
 [Display value:voltage /]
+
+**unordered list**
+
 * list Item 
 * list Item 
 * list Item 
+
+**ordered list**
+
+1. list Item 
+2. list Item 
+3. list Item 
 
 [var name:"drag" value:1 /]
 
@@ -41,6 +52,7 @@ vima text  khkhkhkdfg lkdjlkjdlfgdlk lkjlkdjfgdf
 [Boolean value:checkVar /]
 
 Checkbox :
+
 [Display value:\` checkVar ? "is checked." : "isn't checked." \`/]
 
 [Dynamic value:drag /]
@@ -58,16 +70,17 @@ Checkbox :
 [Button onClick:\`func = Math.sin\`]sin[/Button]
 [Button onClick:\`func = Math.cos\`]cos[/Button]
 
-[Range value:domainStart min:0 max:0 step:0.01  /]
+// [Range value:domainStart min:0 max:0 step:0.01  /]
 
-[Range value:domainEnd min:0 max:\`4 * Math.PI\` step:0.01  /]
+// [Range value:domainEnd min:0 max:\`4 * Math.PI\` step:0.01  /]
+
 
 [IdyllImage src:"https://www.nappy.co/wp-content/uploads/2017/08/2017-07-03-06.31.35-Edit.jpg" /]
 `;
-const IdyllRenderer = ({markup}) => {
+const IdyllRenderer = () => {
   return (
     <View>
-      <IdyllDocument components={{...components, NoData}} markup={markup} />
+      <IdyllDocument components={{ ...components, NoData }} markup={markup} />
     </View>
   );
 };
